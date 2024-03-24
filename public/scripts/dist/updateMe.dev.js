@@ -19,7 +19,7 @@ function updateMe(data) {
           _context.next = 3;
           return regeneratorRuntime.awrap(axios({
             method: "PATCH",
-            url: "http://127.0.0.1:3000/api/v1/users/UpdateMe",
+            url: "/api/v1/users/UpdateMe",
             data: data
           }));
 
@@ -52,7 +52,7 @@ function updatePassword(passwordCurrent, password, passwordConfirm) {
           _context2.next = 3;
           return regeneratorRuntime.awrap(axios({
             method: "PATCH",
-            url: "http://127.0.0.1:3000/api/v1/users/UpdatePassword",
+            url: "/api/v1/users/UpdatePassword",
             data: {
               passwordCurrent: passwordCurrent,
               password: password,

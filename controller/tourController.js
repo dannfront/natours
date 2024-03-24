@@ -44,7 +44,6 @@ exports.uploadTourImages = upload.fields([
 
 exports.resizeTourImages = catchAsync(async (req, res, next) => {
     if (!req.files.imageCover || !req.files.images) return next();
-    console.log(req.files);
 
   // 1) Cover image
   req.body.imageCover = `tour-${req.params.id}-${Date.now()}-cover.jpeg`;
@@ -167,7 +166,6 @@ exports.getToursWithin=catchAsync(async function(req,res,next){
 })
 
 exports.getDistances=catchAsync(async function(req,res,next){
-    console.log(req.params);
     const {latlng,unit}=req.params
     const [lat,lng]=latlng.split(",")
     const multiplier=unit==='mi'?0.000621371:0.001

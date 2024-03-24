@@ -68,18 +68,17 @@ exports.resizeTourImages = catchAsync(function _callee2(req, res, next) {
           return _context2.abrupt("return", next());
 
         case 2:
-          console.log(req.files); // 1) Cover image
-
+          // 1) Cover image
           req.body.imageCover = "tour-".concat(req.params.id, "-").concat(Date.now(), "-cover.jpeg");
-          _context2.next = 6;
+          _context2.next = 5;
           return regeneratorRuntime.awrap(sharp(req.files.imageCover[0]).resize(2000, 1333).toFormat('jpeg').jpeg({
             quality: 90
           }).toFile("public/img/tours/".concat(req.body.imageCover)));
 
-        case 6:
+        case 5:
           // 2) Images
           req.body.images = [];
-          _context2.next = 9;
+          _context2.next = 8;
           return regeneratorRuntime.awrap(Promise.all(req.files.images.map(function _callee(file, i) {
             var filename;
             return regeneratorRuntime.async(function _callee$(_context) {
@@ -103,10 +102,10 @@ exports.resizeTourImages = catchAsync(function _callee2(req, res, next) {
             });
           })));
 
-        case 9:
+        case 8:
           next();
 
-        case 10:
+        case 9:
         case "end":
           return _context2.stop();
       }
@@ -294,20 +293,19 @@ exports.getDistances = catchAsync(function _callee7(req, res, next) {
     while (1) {
       switch (_context7.prev = _context7.next) {
         case 0:
-          console.log(req.params);
           _req$params2 = req.params, latlng = _req$params2.latlng, unit = _req$params2.unit;
           _latlng$split3 = latlng.split(","), _latlng$split4 = _slicedToArray(_latlng$split3, 2), lat = _latlng$split4[0], lng = _latlng$split4[1];
           multiplier = unit === 'mi' ? 0.000621371 : 0.001;
 
           if (!(!lat || !lng)) {
-            _context7.next = 6;
+            _context7.next = 5;
             break;
           }
 
           return _context7.abrupt("return", next(new appError("please provided latitur al longitude in the format: lat,lng")));
 
-        case 6:
-          _context7.next = 8;
+        case 5:
+          _context7.next = 7;
           return regeneratorRuntime.awrap(Tour.aggregate([{
             $geoNear: {
               near: {
@@ -324,7 +322,7 @@ exports.getDistances = catchAsync(function _callee7(req, res, next) {
             }
           }]));
 
-        case 8:
+        case 7:
           distances = _context7.sent;
           res.status(200).json({
             message: "succes",
@@ -332,7 +330,7 @@ exports.getDistances = catchAsync(function _callee7(req, res, next) {
             data: distances
           });
 
-        case 10:
+        case 9:
         case "end":
           return _context7.stop();
       }

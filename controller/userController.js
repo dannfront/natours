@@ -63,8 +63,6 @@ exports.UpdateMe=catchAsync(async function(req,res,next){
     //quitar los demas campos del body y solo fltrar por estos campos
     const newBody=filterObj(req.body,"email","name")
     if(req.file) newBody.photo=req.file.fileName
-    console.log(req.file);
-    console.log(newBody);
     //actualizamos el documento con el body filtrado y activamos los validadores 
     //new:true es para devolver el neuvo documento actualizado
     const user = await User.findByIdAndUpdate(req.user.id,newBody,{new:true,runValidators:true})

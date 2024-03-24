@@ -39,6 +39,8 @@ var stripeRouter = require('./routers/stripeRouter.js');
 
 var globalErrorHandeler = require('./controller/errorController.js');
 
+var compression = require('compression');
+
 var app = express();
 app.use(cors({
   origin: 'http://localhost:3000'
@@ -108,7 +110,8 @@ app.use(helmet.contentSecurityPolicy({
     // Add this line
     upgradeInsecureRequests: []
   }
-})); //usamos el middleware para ver las rutas antes de que lleguen al servidor
+}));
+app.use(compression()); //usamos el middleware para ver las rutas antes de que lleguen al servidor
 
 app.use('/', viewRoute);
 app.use('/api/v1/tours', tourRouter);

@@ -19,6 +19,9 @@ const reviewRouter = require('./routers/reviewRouter.js')
 const viewRoute = require('./routers/viewRouter.js')
 const stripeRouter=require('./routers/stripeRouter.js')
 const globalErrorHandeler = require('./controller/errorController.js')
+const compression=require('compression')
+
+
 
 
 const app = express()
@@ -110,7 +113,7 @@ app.use(
         },
     })
 );
-
+app.use(compression())
 //usamos el middleware para ver las rutas antes de que lleguen al servidor
 app.use('/', viewRoute)
 app.use('/api/v1/tours', tourRouter)

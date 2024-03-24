@@ -23,9 +23,7 @@ exports.getCheckoutSession = catchAsync(function _callee(req, res, next) {
 
         case 2:
           tour = _context.sent;
-          console.log("hola"); //preparamos y creamos el checkout session
-
-          _context.next = 6;
+          _context.next = 5;
           return regeneratorRuntime.awrap(stripe.checkout.sessions.create({
             payment_method_types: ['card'],
             mode: "payment",
@@ -49,7 +47,7 @@ exports.getCheckoutSession = catchAsync(function _callee(req, res, next) {
             }]
           }));
 
-        case 6:
+        case 5:
           session = _context.sent;
           // respuesta
           res.status(200).json({
@@ -57,7 +55,7 @@ exports.getCheckoutSession = catchAsync(function _callee(req, res, next) {
             session: session
           });
 
-        case 8:
+        case 7:
         case "end":
           return _context.stop();
       }
@@ -89,10 +87,9 @@ exports.newBooking = catchAsync(function _callee2(req, res, next) {
           }));
 
         case 5:
-          console.log('kkkk');
           res.redirect(req.originalUrl.split("?")[0]);
 
-        case 7:
+        case 6:
         case "end":
           return _context2.stop();
       }

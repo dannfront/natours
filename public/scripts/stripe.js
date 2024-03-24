@@ -3,7 +3,7 @@ const stripe=Stripe('pk_test_51Ow7RsRrjXyajTmrGyMfs3phn3TTFPOHlbTOj0bNL5rUpt9Ssf
 
 export default async function pago(tourId){
     try {
-        const session= await fetch(`http://127.0.0.1:3000/api/v1/bookings/checkout-sessions/${tourId}`)
+        const session= await fetch(`/api/v1/bookings/checkout-sessions/${tourId}`)
         const dataSession=await session.json()
         await stripe.redirectToCheckout({
             sessionId: dataSession.session.id,

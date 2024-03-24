@@ -7,7 +7,6 @@ const appError = require('../classController/appError.js')
 exports.overview = catchAsync(async function (req, res, next) {
 
     const tours=await Tour.find()
-    console.log(req.originalUrl);
     res.status(200).render("overview", {
         tours
     })
@@ -22,7 +21,6 @@ exports.myBookings=catchAsync(async function(req,res,next){
     const tourId=bookings.map(el=>el.tour)
     //encontrat los tour por el id in significa que busque todos los documentos que constengan las id que esten en el arreglo de tourId
     const tours=await Tour.find({_id:{$in:tourId}})
-    console.log(tours);
     res.status(200).render("overview", {
         title:"my bookings",
         tours
@@ -30,7 +28,6 @@ exports.myBookings=catchAsync(async function(req,res,next){
 })
 
 exports.tour= catchAsync( async function(req,res,next){
-    console.log(req.originalUrl);
     const tour=await Tour.findOne({slug:req.params.slug}).populate({
         path:"reviews",
         fields:"review rating user"

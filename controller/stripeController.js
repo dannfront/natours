@@ -9,7 +9,6 @@ const factoryFunction=require('./factoryFunctions.js');
 exports.getCheckoutSession = catchAsync(async function (req, res, next) {
     //obtenemos el tour
     const tour = await Tour.findById(req.params.tourId)
-    console.log("hola");
     //preparamos y creamos el checkout session
     const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
@@ -46,7 +45,6 @@ exports.newBooking=catchAsync(async function(req,res,next){
 
     if(!tour&&!user&&!price)return next()
     await Booking.create({tour,user,price})
-    console.log('kkkk');
     res.redirect(req.originalUrl.split("?")[0])
 })
 

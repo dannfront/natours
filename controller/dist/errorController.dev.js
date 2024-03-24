@@ -46,7 +46,6 @@ function sendErrorProd(err, req, res) {
   }
 
   if (err.isOperational) {
-    console.log(err.message);
     return res.status(err.statusCode).render("error", {
       title: "error",
       msg: err.message

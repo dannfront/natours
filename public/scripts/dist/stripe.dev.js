@@ -14,7 +14,7 @@ function pago(tourId) {
         case 0:
           _context.prev = 0;
           _context.next = 3;
-          return regeneratorRuntime.awrap(fetch("http://127.0.0.1:3000/api/v1/bookings/checkout-sessions/".concat(tourId)));
+          return regeneratorRuntime.awrap(fetch("/api/v1/bookings/checkout-sessions/".concat(tourId)));
 
         case 3:
           session = _context.sent;

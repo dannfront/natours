@@ -99,25 +99,23 @@ exports.UpdateMe = catchAsync(function _callee2(req, res, next) {
         case 2:
           //quitar los demas campos del body y solo fltrar por estos campos
           newBody = filterObj(req.body, "email", "name");
-          if (req.file) newBody.photo = req.file.fileName;
-          console.log(req.file);
-          console.log(newBody); //actualizamos el documento con el body filtrado y activamos los validadores 
+          if (req.file) newBody.photo = req.file.fileName; //actualizamos el documento con el body filtrado y activamos los validadores 
           //new:true es para devolver el neuvo documento actualizado
 
-          _context2.next = 8;
+          _context2.next = 6;
           return regeneratorRuntime.awrap(User.findByIdAndUpdate(req.user.id, newBody, {
             "new": true,
             runValidators: true
           }));
 
-        case 8:
+        case 6:
           user = _context2.sent;
           res.status(200).json({
             status: "succes",
             user: user
           });
 
-        case 10:
+        case 8:
         case "end":
           return _context2.stop();
       }
