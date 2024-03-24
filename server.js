@@ -20,7 +20,8 @@ connectDB(db)
 //     then(() => console.log('connected to the database'))
 
 //iniciamos el servidor
-const server=app.listen(3000, () => console.log('server iniced'))
+const port = process.env.PORT || 3000;
+const server=app.listen(port, () => console.log('server iniced'))
 //unhandledRejection rechazos no controlados , cunado no provienen de expres y mongosse
 // cuando hay rechazos no controldos el evento unhandledRejection se activa
 process.on('unhandledRejection', err => {

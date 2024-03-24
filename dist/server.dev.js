@@ -26,7 +26,8 @@ connectDB(db); // mongoose.connect(db).
 //     then(() => console.log('connected to the database'))
 //iniciamos el servidor
 
-var server = app.listen(3000, function () {
+var port = process.env.PORT || 3000;
+var server = app.listen(port, function () {
   return console.log('server iniced');
 }); //unhandledRejection rechazos no controlados , cunado no provienen de expres y mongosse
 // cuando hay rechazos no controldos el evento unhandledRejection se activa
