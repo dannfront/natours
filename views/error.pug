@@ -1,0 +1,10 @@
+extends plantilla 
+block append head
+    script(defer src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js")
+    script(defer type="module" src="/scripts/index.js")
+block content 
+    main.main 
+        .error 
+            .error__title
+                h2.heading-secondary.heading-secondary--error Uh oh! something went wrong!
+            .error__msg= msg

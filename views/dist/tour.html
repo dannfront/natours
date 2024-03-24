@@ -1,0 +1,139 @@
+<!DOCTYPE html >
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="shortcut-icon" type="image/png" href="/img/favicon.png"/>
+    <title>Natours | </title>
+  </head>
+  <body>
+    <!--header-->
+    <header class="header"> 
+      <nav class="nav nav--tours"><a class="nav__el" href="#">All tours</a></nav>
+      <div class="header logo"> <img src="/img/logo-white.png" alt="Natours logo"/></div>
+      <nav class="nav nav--user"> 
+        <button class="nav__el">log in</button>
+        <button class="nav__el nav__el--cta">sign up</button>
+      </nav>
+    </header>
+    <!-- content-->
+    <p></p>
+    <section class="section-header">
+      <div class="header__hero">
+        <div class="header__hero-overlay">&nbsp;</div><img class="header__hero-img" src="/img/tour-5-cover.jpg" alt="img"/>
+      </div>
+      <div class="heading-box"> 
+        <h1 class="heading-primary"><span>The Sea Explorer</span></h1>
+        <div class="heading-box__group">
+          <div class="heading-box__detail">
+            <svg class="heading-box__icon">
+              <use xlink:href="/img/icons.svg#icon-clock"></use>
+            </svg><span class="heading-box__text">3 day tour</span>
+          </div>
+          <div class="heading-box__detail">
+            <svg class="heading-box__icon">
+              <use xlink:href="/img/icons.svg#icon-map-pin"></use>
+            </svg><span class="heading-box__text">Portugal</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section-description">
+      <div class="overview-box">
+        <div> 
+          <overview-box__group> 
+            <h2 class="heading-secondary ma-bt-lg">quick facts </h2>
+            <div class="overview-box__detail">
+              <svg class="overview-box__icon">
+                <use xlink:href="/img/icons.svg#icon-calendar"></use>
+              </svg><span class="overview-box__label">next date</span><span class="overview-box__text">May 2021</span>
+            </div>
+            <div class="overview-box__detail">
+              <svg class="overview-box__icon">
+                <use xlink:href="/img/icons.svg#icon-trending-up"></use>
+              </svg><span class="overview-box__label">difficulty</span><span class="overview-box__text">easy</span>
+            </div>
+            <div class="overview-box__detail">
+              <svg class="overview-box__icon">
+                <use xlink:href="/img/icons.svg#icon-user"></use>
+              </svg><span class="overview-box__label">participants</span><span class="overview-box__text">15 people</span>
+            </div>
+            <div class="overview-box__detail">
+              <svg class="overview-box__icon">
+                <use xlink:href="/img/icons.svg#icon-star"></use>
+              </svg><span class="overview-box__label">rating</span><span class="overview-box__text">4.8 / 5</span>
+            </div>
+          </overview-box__group>
+          <div class="overview-box__group"> 
+            <h2 class="heading-secondary ma-bt-lg">your tour guides </h2>
+            <div class="overview-box__detail"><img class="overview-box__img" src="/img/users/user-19.jpg" alt="tour guide"/><span class="overview-box__label">intern</span><span class="overview-box__text">Jonan Doe</span></div>
+            <div class="overview-box__detail"><img class="overview-box__img" src="/img/users/user-18.jpg" alt="tour guide"/><span class="overview-box__label">intern</span><span class="overview-box__text">Jane Doe</span></div>
+            <div class="overview-box__detail"><img class="overview-box__img" src="/img/users/user-17.jpg" alt="tour guide"/><span class="overview-box__label">intern</span><span class="overview-box__text">Mary Smith</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="description-box">
+        <h2 class="heading-secondary ma-bt-lg">about the tour</h2>
+        <p class="description__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p class="description__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </section>
+    <section class="section-pictures">
+      <div class="picture-box"><img class="picture-box__img picture-box__img--1" src="/img/tours/tour-5-1.jpg" alt="The Sea Explorer"/></div>
+      <div class="picture-box"><img class="picture-box__img picture-box__img--1" src="/img/tours/tour-5-2.jpg" alt="The Sea Explorer"/></div>
+      <div class="picture-box"><img class="picture-box__img picture-box__img--1" src="/img/tours/tour-5-3.jpg" alt="The Sea Explorer"/></div>
+    </section>
+    <section class="section-map">
+      <div id="map"></div>
+    </section>
+    <section class="section-reviews">
+      <div class="reviews">
+        <div class="reviews__card">
+          <div class="reviews__avatar"></div><img class="reviews__avatar-img" src="/img/users/user-7.jpg" alt=""/>
+          <h6 class="reviews__user">John Doe</h6>
+        </div>
+        <p class="reviews__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="reviews__rating"> 
+          <svg class="reviews__star reviews__star--active">
+            <use xlink:href="/img/icons.svg#icon-star"></use>
+          </svg>
+          <svg class="reviews__star reviews__star--active">
+            <use xlink:href="/img/icons.svg#icon-star"></use>
+          </svg>
+          <svg class="reviews__star reviews__star--active">
+            <use xlink:href="/img/icons.svg#icon-star"></use>
+          </svg>
+          <svg class="reviews__star reviews__star--active">
+            <use xlink:href="/img/icons.svg#icon-star"></use>
+          </svg>
+          <svg class="reviews__star reviews__star--active">
+            <use xlink:href="/img/icons.svg#icon-star"></use>
+          </svg>
+        </div>
+      </div>
+    </section>
+    <section class="section-cta">
+      <div class="cta">
+        <div class="cta__img cta__img--logo"><img src="/img/logo-white.png" alt="Natours logo"/></div><img class="cta__img cta__img--1" src="/img/tour-5-2.jpg" alt=""/><img class="cta__img cta__img--1" src="/img/tour-5-1.jpg" alt=""/>
+        <div class="cta__content"> 
+          <h2 class="heading-secondary">waht are you waiting for?</h2>
+          <p class="cta__text">book now!</p>
+          <button class="btn btn--green span-all-rows">Submit</button>
+        </div>
+      </div>
+    </section>
+    <!--footer-->
+    <div class="footer"> 
+      <div class="footer__logo"> <img src="/img/logo-green.png" alt="Natours logo"/></div>
+      <ul class="footer__nav"> 
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Download apps</a></li>
+        <li><a href="#">Become a guide</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <p class="footer__copyright">&copy; by Jonas Schmedtmann. All rights reserved.</p>
+    </div>
+  </body>
+</html>

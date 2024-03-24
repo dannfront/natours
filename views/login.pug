@@ -1,0 +1,19 @@
+extends plantilla
+
+block append head
+    script(defer src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js")
+    script(defer type="module" src="/scripts/index.js")
+
+block content
+    main.main 
+        .login-form
+            h2.heading-secondary.ma-bt-lg Log into your account 
+            form.form.form--login
+                .form__group 
+                    label.form__label(for="email") Email address 
+                    input.form__input(type="email", id="email", placeholder="")
+                .form__group.ma-bt-md
+                    label.form__label(for="password") Password 
+                    input.form__input(type="password", id="password", placeholder="********")
+                .form__group 
+                    button.btn.btn--green Login
