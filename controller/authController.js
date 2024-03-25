@@ -24,7 +24,7 @@ function sendToken(user,statusCode,req,res){
         expires: new Date( Date.now()+process.env.JSW_COOKIE_EXPIRES_IN*24*60*60*1000),
         // // //httpOnly es para que los scripts de lado del cliente no modifique la cookie 
         httpOnly:true,
-        secure:req.secure
+        secure:req.secure||req.headers('X-Forwarded-Proto')==='https'
     }
 
     res.cookie("jwt",token,options)

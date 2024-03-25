@@ -28,7 +28,7 @@ const app = express()
 app.use(cors({
     origin: 'http://localhost:3000',
 }));
-app.set('trust proxy',1)
+app.enable('trust proxy')
 //implementamos el middleware
 app.use(cookieParser())
 //le dice a express que usar el motor de plantillas pug para renderizar las plantillas
