@@ -18,7 +18,7 @@ route.patch('/ResetPassword/:token',authController.resetPassword)
 route.patch('/UpdatePassword',authController.protect,authController.UpdatePassword)
 
 //middleware de proteccion de rutas
-route.use(authController.protect)
+// route.use(authController.protect)
 
 //single es para un solo archivo y se le pasa el nombre del campo del formulario
 route.patch('/UpdateMe',userController.updatePhoto,userController.resizePhoto,userController.UpdateMe)
