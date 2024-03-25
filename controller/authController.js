@@ -15,7 +15,7 @@ function getJwt(id, expired) {
     })  
 }
 
-function sendToken(user,statusCode,res){
+function sendToken(user,statusCode,req,res){
     const token = getJwt(user.id, process.env.JSW_EXPIRES_IN);
 
     //cookies
@@ -59,7 +59,7 @@ exports.login = catchAsync(async function (req, res, next) {
     const user = await User.findOne({ email }).select('+password')
     if (!user || !(await user.correctPasword(password, user.password))) return next(new appError("incorrect password or email", 404))
 
-    sendToken(user,200,res)
+    sendToken(user,200,req,res)
 })
 
 exports.signUp = catchAsync(async function (req, res, next) {
@@ -72,7 +72,7 @@ exports.signUp = catchAsync(async function (req, res, next) {
     })
     const url=`${req.protocol}://${req.get('host')}/me`
     await new Email(newUser,url).sendWelcome()
-    sendToken(newUser,200,res)
+    sendToken(newUser,200,req,res)
 })
 
 
@@ -197,7 +197,7 @@ exports.resetPassword = catchAsync(async function (req, res, next) {
     // guardamos el documento
     await user.save()
 
-    sendToken(user,200,res)
+    sendToken(user,200,req,res)
 
 })
 
@@ -212,7 +212,7 @@ exports.UpdatePassword = catchAsync(async function (req, res, next) {
     user.passwordConfirm = req.body.passwordConfirm;
     await user.save();  // Aquí está el cambio
 
-    sendToken(user,200,res)
+    sendToken(user,200,req,res)
 });
 
 

@@ -27,7 +27,7 @@ function getJwt(id, expired) {
   });
 }
 
-function sendToken(user, statusCode, res) {
+function sendToken(user, statusCode, req, res) {
   var token = getJwt(user.id, process.env.JSW_EXPIRES_IN); //cookies
   //el primer parametro para crear una cookie es el nombre de la cookie el segundo es lo que guardara la cookie y por ultimo es un objeto de opciones
 
@@ -103,7 +103,7 @@ exports.login = catchAsync(function _callee(req, res, next) {
           return _context.abrupt("return", next(new appError("incorrect password or email", 404)));
 
         case 14:
-          sendToken(user, 200, res);
+          sendToken(user, 200, req, res);
 
         case 15:
         case "end":
@@ -134,7 +134,7 @@ exports.signUp = catchAsync(function _callee2(req, res, next) {
           return regeneratorRuntime.awrap(new Email(newUser, url).sendWelcome());
 
         case 6:
-          sendToken(newUser, 200, res);
+          sendToken(newUser, 200, req, res);
 
         case 7:
         case "end":
@@ -387,7 +387,7 @@ exports.resetPassword = catchAsync(function _callee6(req, res, next) {
           return regeneratorRuntime.awrap(user.save());
 
         case 12:
-          sendToken(user, 200, res);
+          sendToken(user, 200, req, res);
 
         case 13:
         case "end":
@@ -426,7 +426,7 @@ exports.UpdatePassword = catchAsync(function _callee7(req, res, next) {
 
         case 11:
           // Aquí está el cambio
-          sendToken(user, 200, res);
+          sendToken(user, 200, req, res);
 
         case 12:
         case "end":
