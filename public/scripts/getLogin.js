@@ -3,7 +3,7 @@
 import { alert } from './alerts.js'
 
 export async function login(email, password) {
-    console.log(email,password);
+    
     try {
         const res = await axios({
             method: "POST",

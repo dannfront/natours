@@ -30,6 +30,7 @@ if (form) {
     e.preventDefault();
     var email = document.querySelector("#email").value;
     var password = document.querySelector("#password").value;
+    console.log(email, password);
     (0, _getLogin.login)(email, password);
   });
 }
