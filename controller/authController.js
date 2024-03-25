@@ -26,7 +26,6 @@ function sendToken(user,statusCode,req,res){
         httpOnly:true,
         secure:req.secure||req.headers('X-Forwarded-Proto')==='https'
     }
-
     res.cookie("jwt",token,options)
     
     user.password=undefined
@@ -74,9 +73,6 @@ exports.signUp = catchAsync(async function (req, res, next) {
     await new Email(newUser,url).sendWelcome()
     sendToken(newUser,200,req,res)
 })
-
-
-
 
 //middleware para verificar el json webToken
 exports.protect = catchAsync(async function (req, res, next) {

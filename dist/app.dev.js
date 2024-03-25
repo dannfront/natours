@@ -43,7 +43,7 @@ var compression = require('compression');
 
 var app = express();
 app.use(cors({
-  origin: 'http://localhost:3000'
+  origin: 'http://127.0.0.1:3000'
 }));
 app.enable('trust proxy'); //implementamos el middleware
 
@@ -76,7 +76,7 @@ app.use(hpp({
 
 app.use(function (req, res, next) {
   // asi podemos acceder a las cookies por el modulo de cookie parser
-  console.log(req.cookies);
+  // console.log(req.cookies) 
   next();
 }); //cons esto podemos servir archivos estaticos como hrml imagenes y css
 // app.use(express.static(`${__dirname}/public`))
