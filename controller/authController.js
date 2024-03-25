@@ -5,6 +5,7 @@ const User = require('../Model/userModel.js')
 const catchAsync = require('../utils/catchAsync.js')
 const appError = require('../classController/appError.js')
 const Email = require('../utils/sendEmail.js')
+const { log } = require('node:console')
 
 
 function getJwt(id, expired) {
@@ -51,6 +52,7 @@ exports.loggingOut=function(req,res){
 exports.login = catchAsync(async function (req, res, next) {
 
     const { email, password } = req.body
+    console.log(email,body);
     //verificar si en el body hay email y password
     if (!email || !password) return next(new appError("please insert email and password", 404))
 

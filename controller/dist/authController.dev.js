@@ -15,6 +15,9 @@ var appError = require('../classController/appError.js');
 
 var Email = require('../utils/sendEmail.js');
 
+var _require2 = require('node:console'),
+    log = _require2.log;
+
 function getJwt(id, expired) {
   //creacion del token espera la firma, palbra secreta y tiempo en expirar
   return jwt.sign({
@@ -61,48 +64,49 @@ exports.login = catchAsync(function _callee(req, res, next) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          _req$body = req.body, email = _req$body.email, password = _req$body.password; //verificar si en el body hay email y password
+          _req$body = req.body, email = _req$body.email, password = _req$body.password;
+          console.log(email, body); //verificar si en el body hay email y password
 
           if (!(!email || !password)) {
-            _context.next = 3;
+            _context.next = 4;
             break;
           }
 
           return _context.abrupt("return", next(new appError("please insert email and password", 404)));
 
-        case 3:
-          _context.next = 5;
+        case 4:
+          _context.next = 6;
           return regeneratorRuntime.awrap(User.findOne({
             email: email
           }).select('+password'));
 
-        case 5:
+        case 6:
           user = _context.sent;
           _context.t0 = !user;
 
           if (_context.t0) {
-            _context.next = 11;
+            _context.next = 12;
             break;
           }
 
-          _context.next = 10;
+          _context.next = 11;
           return regeneratorRuntime.awrap(user.correctPasword(password, user.password));
 
-        case 10:
+        case 11:
           _context.t0 = !_context.sent;
 
-        case 11:
+        case 12:
           if (!_context.t0) {
-            _context.next = 13;
+            _context.next = 14;
             break;
           }
 
           return _context.abrupt("return", next(new appError("incorrect password or email", 404)));
 
-        case 13:
+        case 14:
           sendToken(user, 200, res);
 
-        case 14:
+        case 15:
         case "end":
           return _context.stop();
       }
