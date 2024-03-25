@@ -41,10 +41,11 @@
     "stripe": "^7.0.0",
     "validator": "^13.11.0",
     "xss": "^1.0.14",
-    "xss-clean": "^0.1.4"
+    "xss-clean": "^0.1.4",
+    "parcel-bundler": "^1.12.5"
+    
   },
   "devDependencies": {
-    "nodemon": "^3.1.0",
-    "parcel-bundler": "^1.12.5"
+    "nodemon": "^3.1.0"
   }
 }
