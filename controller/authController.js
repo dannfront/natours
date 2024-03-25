@@ -92,32 +92,32 @@ exports.signUp = catchAsync(async function (req, res, next) {
 
 
 //middleware para verificar el json webToken
-exports.protect = catchAsync(async function (req, res, next) {
-    let token
-    //verificamos si en los headers se pasa el token
-    if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
-        token = req.headers.authorization.split(' ')[1]
-    }else if(req.cookies.jwt){
-        token=req.cookies.jwt
-    }
-    //si el token no contie informacion no accedemos a los datos 
-    if (!token) return next(new appError('you need to log in to access', 401))
+// exports.protect = catchAsync(async function (req, res, next) {
+//     let token
+//     //verificamos si en los headers se pasa el token
+//     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')){
+//         token = req.headers.authorization.split(' ')[1]
+//     }else if(req.cookies.jwt){
+//         token=req.cookies.jwt
+//     }
+//     //si el token no contie informacion no accedemos a los datos 
+//     if (!token) return next(new appError('you need to log in to access', 401))
 
-    //verificamos si el token existe 
-    //compara token con la palabra secreta
-    const decoded = await promisify(jwt.verify)(token, process.env.JSW_SECRET)
-    // verificar si el usuario registrado existe
-    const userAct = await User.findById(decoded.id)
-    if (!userAct) return next(new appError('The user does not exist, please log in', 401))
+//     //verificamos si el token existe 
+//     //compara token con la palabra secreta
+//     const decoded = await promisify(jwt.verify)(token, process.env.JSW_SECRET)
+//     // verificar si el usuario registrado existe
+//     const userAct = await User.findById(decoded.id)
+//     if (!userAct) return next(new appError('The user does not exist, please log in', 401))
 
-    // verificar cambio la contraseña
-    if (!userAct.changePassword(decoded.iat)) return next(new appError('password changed please log in', 401))
+//     // verificar cambio la contraseña
+//     if (!userAct.changePassword(decoded.iat)) return next(new appError('password changed please log in', 401))
 
-    // guarda la informacion del usuario
-    req.user = userAct
-    res.locals.user=userAct
-    next()
-})
+//     // guarda la informacion del usuario
+//     req.user = userAct
+//     res.locals.user=userAct
+//     next()
+// })
 
 
 //middleware para verificar si el usuario esta logeado
