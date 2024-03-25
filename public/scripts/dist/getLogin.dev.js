@@ -16,8 +16,9 @@ function login(email, password) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          _context.prev = 0;
-          _context.next = 3;
+          console.log(email, password);
+          _context.prev = 1;
+          _context.next = 4;
           return regeneratorRuntime.awrap(axios({
             method: "POST",
             url: '/api/v1/users/login',
@@ -28,7 +29,7 @@ function login(email, password) {
             withCredentials: true
           }));
 
-        case 3:
+        case 4:
           res = _context.sent;
 
           // redireccionamos a la pagina principal 
@@ -37,20 +38,20 @@ function login(email, password) {
             window.location.href = "/";
           }
 
-          _context.next = 10;
+          _context.next = 11;
           break;
 
-        case 7:
-          _context.prev = 7;
-          _context.t0 = _context["catch"](0);
+        case 8:
+          _context.prev = 8;
+          _context.t0 = _context["catch"](1);
           (0, _alerts.alert)(_context.t0.response.data.message, "error");
 
-        case 10:
+        case 11:
         case "end":
           return _context.stop();
       }
     }
-  }, null, null, [[0, 7]]);
+  }, null, null, [[1, 8]]);
 }
 
 function loggout() {

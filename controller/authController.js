@@ -52,7 +52,7 @@ exports.loggingOut=function(req,res){
 exports.login = catchAsync(async function (req, res, next) {
 
     const { email, password } = req.body
-    console.log(email,body);
+    console.log(email,password);
     //verificar si en el body hay email y password
     if (!email || !password) return next(new appError("please insert email and password", 404))
 

@@ -65,7 +65,7 @@ exports.login = catchAsync(function _callee(req, res, next) {
       switch (_context.prev = _context.next) {
         case 0:
           _req$body = req.body, email = _req$body.email, password = _req$body.password;
-          console.log(email, body); //verificar si en el body hay email y password
+          console.log(email, password); //verificar si en el body hay email y password
 
           if (!(!email || !password)) {
             _context.next = 4;
