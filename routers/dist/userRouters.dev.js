@@ -16,8 +16,8 @@ route.get('/logout', authController.loggingOut); // route.post('/conmfirmEmail/:
 route.post('/forgotPassword', authController.forgotPassword);
 route.patch('/ResetPassword/:token', authController.resetPassword);
 route.patch('/UpdatePassword', authController.protect, authController.UpdatePassword); //middleware de proteccion de rutas
-// route.use(authController.protect)
-//single es para un solo archivo y se le pasa el nombre del campo del formulario
+
+route.use(authController.protect); //single es para un solo archivo y se le pasa el nombre del campo del formulario
 
 route.patch('/UpdateMe', userController.updatePhoto, userController.resizePhoto, userController.UpdateMe);
 route["delete"]('/DeleteMe', userController.DeleteMe); //obtener los datos del usaurio sin que ponga el id en el url

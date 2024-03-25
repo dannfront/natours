@@ -4,7 +4,6 @@ function hideAlert(){
 }
 
 export function alert(message,type){
-    console.log(type);
     const template=`<div class="alert alert--${type}">${message}</div>`
     document.querySelector("body").insertAdjacentHTML('afterbegin',template)
     window.setTimeout(hideAlert,8000)

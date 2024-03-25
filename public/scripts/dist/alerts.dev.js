@@ -11,7 +11,6 @@ function hideAlert() {
 }
 
 function alert(message, type) {
-  console.log(type);
   var template = "<div class=\"alert alert--".concat(type, "\">").concat(message, "</div>");
   document.querySelector("body").insertAdjacentHTML('afterbegin', template);
   window.setTimeout(hideAlert, 8000);
