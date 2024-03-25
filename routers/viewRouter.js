@@ -9,8 +9,8 @@ route.get("/",stripeController.newBooking,authController.isLoggued,viewControlle
 route.get("/tour/:slug",authController.isLoggued,viewController.tour)
 route.get("/login",authController.isLoggued,viewController.login)
 
-// route.use(authController.protect)
-route.get("/me",viewController.me)
-route.get("/my-bookings",viewController.myBookings)
+
+route.get("/me",authController.protect,viewController.me)
+route.get("/my-bookings",authController.protect,viewController.myBookings)
 
 module.exports=route
