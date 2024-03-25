@@ -63,8 +63,7 @@ var limiter = rateLimit({
   message: 'number of requests reached'
 }); //middlewares
 // app.use(helmet())//protege las aplicaciones Express mediante la configuración de encabezados de respuesta HTTP.
-
-app.use(limiter); //usamos el middleware de request por hora
+// app.use(limiter)//usamos el middleware de request por hora
 
 app.use(express.json());
 app.use(mongoSanitize()); //middleware para santizar los datos del body
