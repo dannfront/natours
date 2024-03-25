@@ -97,7 +97,7 @@ exports.login = catchAsync(function _callee(req, res, next) {
             break;
           }
 
-          next(new appError("incorrect password or email", 404));
+          return _context.abrupt("return", next(new appError("incorrect password or email", 404)));
 
         case 13:
           sendToken(user, 200, res);
