@@ -67,7 +67,7 @@ app.use(hpp({
 // app.use(morgan('dev'))
 app.use((req,res,next)=>{
     // asi podemos acceder a las cookies por el modulo de cookie parser
-    // console.log(req.cookies)
+    console.log(req.cookies) 
     next()
 })
 
